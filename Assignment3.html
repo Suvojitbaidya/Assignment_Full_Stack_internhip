@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Layout</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      max-width: 1200px; /* Add a max-width for readability */
+      margin: 0 auto;
+    }
+
+    .header {
+      background-color: lightblue;
+      padding: 20px;
+      text-align: center;
+      order: 1; /* Display first */
+      border: 2px solid black; /* Add border */
+    }
+
+    .content {
+      padding: 20px;
+      order: 2; /* Display second on mobile and tablet */
+      border: 2px solid black; /* Add border */
+      text-align: center; /* Center the text */
+    }
+
+    .features {
+      display: flex;
+      flex-direction: column;
+      order: 4; /* Features come after content and sign-up on mobile/tablet */
+      border: 2px solid black; /* Add border */
+    }
+
+    .feature {
+      padding: 20px;
+      margin-bottom: 10px;
+      background-color: #eee;
+      text-align: center;
+      border: 2px solid black; /* Add border */
+    }
+
+    .sign-up {
+      background-color: lightcoral;
+      padding: 20px;
+      text-align: center;
+      order: 3; /* Display Sign-Up after content on mobile/tablet */
+      border: 2px solid black; /* Add border */
+    }
+
+    /* Tablet and larger screens */
+    @media (min-width: 768px) {
+      .container {
+        flex-direction: column; /* Keep column layout for tablets */
+      }
+
+      .features {
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+
+      .feature {
+        width: 50%;
+        margin-bottom: 20px;
+      }
+    }
+
+    /* Desktop and larger screens */
+    @media (min-width: 1024px) {
+      .container {
+        flex-direction: column; /* Still use column layout for desktop */
+      }
+
+      /* Change order on desktop */
+      .features {
+        order: 2; /* Move features to just after header on desktop */
+        flex-direction: row;
+        flex-wrap: nowrap; /* Prevent wrapping, ensure all features are in one row */
+      }
+
+      .content {
+        order: 3; /* Move content after features on desktop */
+      }
+
+      .sign-up {
+        order: 4; /* Move Sign-Up to the end */
+      }
+
+      .feature {
+        width: 33.33%; /* Display features in one row, each taking one-third of the space */
+        margin-bottom: 0; /* Remove bottom margin for desktop */
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="header">
+      <h1>[HEADER]</h1>
+    </div>
+
+    <div class="content">
+      <h2>[CONTENT]</h2>
+    </div>
+
+    <div class="sign-up">
+      <h2>[SIGN UP]</h2>
+    </div>
+
+    <div class="features">
+      <div class="feature">[FEATURE 1]</div>
+      <div class="feature">[FEATURE 2]</div>
+      <div class="feature">[FEATURE 3]</div>
+    </div>
+  </div>
+
+</body>
+</html>
